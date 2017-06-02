@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "be15c9a5-f758-4665-b1c5-3238b8ebb068",
+  "alias": "TruetimeWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "be15c9a5-f758-4665-b1c5-3238b8ebb068",
+    "group": { "default": "Under Development" },
+    "title": { "default": "truetime" },
+    "description": { "default": "time report software" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "truetime"
+    }
+  }]
+}

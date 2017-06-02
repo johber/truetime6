@@ -1,0 +1,9 @@
+{
+  "port": 4321,
+  "initialPage": "https://stebra.sharepoint.com/sites/sd1/_layouts/15/workbench.aspx",
+  "https": true,
+  "api": {
+    "port": 5432,
+    "entryPath": "node_modules/@microsoft/sp-webpart-workbench/lib/api/"
+  }
+}

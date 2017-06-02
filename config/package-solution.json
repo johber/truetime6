@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "truetime-client-side-solution",
+    "id": "261822c8-fd5a-4867-810e-e27f260d1bbd",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/truetime.sppkg"
+  }
+}

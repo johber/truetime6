@@ -1,0 +1,42 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/truetime/TruetimeWebPart.js",
+      "manifest": "./src/webparts/truetime/TruetimeWebPart.manifest.json",
+      "outputPath": "./dist/truetime.bundle.js"
+    }
+  ],
+  "externals": {
+
+"sp-init": {
+ "path": "https://stebra.sharepoint.com/sites/sd1/_layouts/15/init.js",
+ "globalName": "$_global_init"
+},
+"microsoft-ajax": {
+ "path": "https://stebra.sharepoint.com/sites/sd1/_layouts/15/MicrosoftAjax.js",
+ "globalName": "Sys",
+ "globalDependencies": [ "sp-init" ]
+},
+"sp-runtime": {
+ "path": "https://stebra.sharepoint.com/sites/sd1/_layouts/15/SP.Runtime.js",
+ "globalName": "SP",
+ "globalDependencies": [ "microsoft-ajax" ]
+},
+"sharepoint": {
+ "path": "https://stebra.sharepoint.com/sites/sd1/_layouts/15/SP.js",
+ "globalName": "SP",
+ "globalDependencies": [ "sp-runtime" ]
+
+},
+"taxonomy": {
+ "path": "https://stebra.sharepoint.com/sites/sd1/_layouts/15/SP.Taxonomy.js",
+ "globalName": "SP",
+ "globalDependencies": [ "sp-runtime" ]
+
+}
+  },
+  "localizedResources": {
+    "truetimeStrings": "webparts/truetime/loc/{locale}.js"
+  }
+}
+

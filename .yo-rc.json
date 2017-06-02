@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "libraryName": "truetime",
+    "framework": "none",
+    "version": "1.0.2",
+    "libraryId": "261822c8-fd5a-4867-810e-e27f260d1bbd"
+  }
+}
