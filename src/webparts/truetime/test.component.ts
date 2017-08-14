@@ -68,7 +68,7 @@ a.arrow {
     height:44%;
     text-align:center;
     position: relative;
-    left: 4.5%;
+    left: 5.0%;
 }
 .month-label {
     color: #003399;
@@ -205,8 +205,8 @@ ul, li {
     font-weight: bold;
     text-align:center;
     height:40px;
-    margin-right: 5.25%;
-    margin-left: 5.25%;
+    margin-right: 6.9%;
+    
 }
 .totalSum{
     color: #808080;
