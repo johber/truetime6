@@ -36,6 +36,9 @@ import { WeekService } from './week.service';
     margin-top: 11px;
     min-width: 125px;
     margin-left: 3px;
+
+
+    
 }
 a {
     text-decoration:none;
@@ -54,14 +57,14 @@ a {
     background-color: #f2f2f2;
     color: #003399;
 }
-.dropdown:hover .dropdown-content {
-    display: block;
+ul, li {
+    margin: 0px;
     padding: 0px;
+    z-index: 10;
 }
 .dropdown {
-    position: relative;
     display: inline-block;
-    margin: 1% -88px 0 0%;
+    position:relative;
     z-index: 10;
 }
 .dropdown-content {
@@ -73,15 +76,16 @@ a {
   	list-style-type: none;
     z-index:10;
 }
-
 .dropdown-content li {
 	padding:5px;
     border-bottom:solid 1px #b3cccc;
     position:relative;
     text-align: center;
 }
-.dropdown:hover .dropdown-content {
-    display: block;
+.dropdown:hover .dropdown-content { display: block; }
+.sumDeleteBox{
+    width: 12%;
+    height: 75px;
 }
 #reportConsultantAdmin{
     min-width: 125px;

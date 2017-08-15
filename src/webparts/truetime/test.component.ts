@@ -397,9 +397,6 @@ ul, li {
 
     <div class="boxheader"> 
 
-
-
-
         <div class="month-label" *ngIf="weekService.month !== undefined">
             {{ weekService.monthNamesLarge[weekService.month]}}
         </div>

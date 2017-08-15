@@ -148,7 +148,7 @@ export class NewTermsService {
         let taxSession = SP.Taxonomy.TaxonomySession.getTaxonomySession(this.context);
         let termStores = taxSession.get_termStores();
         this.context.load(termStores);
-
+          console.log("MinTest", termStores);
         this.context.executeQueryAsync(
           ()=>{
               console.log("loaded termStores", termStores);
