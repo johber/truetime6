@@ -84,12 +84,15 @@ export class UserService {
                     this.listService.createListItem(day, project.projectColumnValue, this.userId)
                         .then((response: SPHttpClientResponse) => {
                             // Access properties of the response object. 
-                            console.log(`Status code: ${response.status}`);
-                            console.log(`Status text: ${response.statusText}`);
-                            //response.json() returns a promise so you get access to the json in the resolve callback.
-                            response.json().then((responseJSON: JSON) => {
-                                console.log("responseJSON", responseJSON);
-                            });
+                            //console.log(`Status code: ${response.status}`);
+                            //console.log(`Status text: ${response.statusText}`);
+                            
+                            //return.response.json() //returns a promise so you get access to the json in the resolve callback.
+                            
+                            //return response.json().then((responseJSON: JSON) => {
+                                //console.log("responseJSON", responseJSON);
+                           // });
+                          
                         });
                 }
             }

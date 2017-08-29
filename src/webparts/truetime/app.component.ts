@@ -109,11 +109,11 @@ ul, li {
         <button class="admin-button" (click)="log()">
             Log Info
         </button>
-        <!--
+        
          <button class="adminButton" (click)="deleteItems()">
             Delete my items 
         </button>
-        -->
+        
         <button [hidden]="hideElement" class="admin-button" *ngIf="projectsService.projects?.length > 0" (click)="userService.lockWeek(false, true)">
             Unlock Week
         </button>
