@@ -47,17 +47,28 @@ export class UserService {
             for (let day of project.week) {
                 if (day.month === this.weekService.month) {
                     day.isLocked = bool;
+                    
                 }
+               
             }
+           
         }
         if (saveChanges) {
             //Notify admin
+            
             this.notifyAdmin(
+                
                 this.userId,
                 this.weekService.weekStart,
                 this.weekService.weekEnd,
-
-            );
+                
+            )
+            .then(response => {
+                this.checkExistingItem(response);
+            })
+            ;
+            
+            
             //this.save()//...to here
         }
         //this.save(); //goto moved this...

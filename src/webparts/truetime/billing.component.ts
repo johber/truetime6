@@ -366,7 +366,10 @@ export class BillingComponent {
     public getSumTotalMonth() {
         let sum = 0;
         for (let item of this.filteredItems) {
-            if (item.isLocked === true) { sum += item.Hours }
+            if (item.isLocked === true) 
+            { 
+                sum += item.Hours 
+            }
         }
         return sum;
     }
