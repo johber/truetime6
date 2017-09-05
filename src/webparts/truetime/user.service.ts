@@ -58,7 +58,7 @@ export class UserService {
                 this.weekService.weekEnd,
 
             );
-            this.save()//...to here
+            //this.save()//...to here
         }
         //this.save(); //goto moved this...
     }
@@ -89,9 +89,9 @@ export class UserService {
                             
                             //return.response.json() //returns a promise so you get access to the json in the resolve callback.
                             
-                            //return response.json().then((responseJSON: JSON) => {
-                                //console.log("responseJSON", responseJSON);
-                           // });
+                           return response.json().then((responseJSON: JSON) => {
+                                console.log("responseJSON", responseJSON);
+                            });
                           
                         });
                 }

@@ -436,6 +436,7 @@ ul, li {
                     [class.other-month-label]="weekService.weekNextFirstDayMonth() !== weekService.month">
                     >
                 </h2>
+              
             </div>
 
         </div> 
