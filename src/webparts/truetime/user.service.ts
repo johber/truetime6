@@ -56,7 +56,7 @@ export class UserService {
         if (saveChanges) {
             //Notify admin
             
-            this.notifyAdmin(
+            this.notifyAdmin && this.listService.getMyWeeklyHours(
                 
                 this.userId,
                 this.weekService.weekStart,
