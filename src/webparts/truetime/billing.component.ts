@@ -66,7 +66,7 @@ ul, li {
     font-weight: bold;
     margin-right: 90px;
     margin-top: 15px;
-    min-width: 110px;
+    min-width: 135px;
 }
 .projectButtonBillingComponentCon{
     height:30px;
@@ -79,15 +79,19 @@ ul, li {
     min-width: 135px;
 }
 #reportConsultant{
-    min-width: 135px;
+    min-width: 133px;
     margin-left: 2px;
 }
 #reportMonth{
-    min-width: 105px;
+    min-width: 133px;
     margin-left: 2px;
 }
 #reportYear{
-    min-width: 105px;
+    min-width: 133px;
+    margin-left: 2px;
+}
+#reportProject{
+    min-width: 133px;
     margin-left: 2px;
 }
 .boxReportBody{

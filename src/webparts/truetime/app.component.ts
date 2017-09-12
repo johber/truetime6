@@ -33,9 +33,9 @@ import { WeekService } from './week.service';
     color: #808080;
     background-color: #f9f9f9;
     font-weight: bold;
-    margin-top: 11px;
-    min-width: 125px;
-    margin-left: 3px;
+    margin-top: 21px;
+    min-width: 135px;
+    margin-left: 1px;
 
 
     
