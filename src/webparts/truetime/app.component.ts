@@ -87,8 +87,8 @@ ul, li {
     height: 75px;
 }
 #reportConsultantAdmin{
-    min-width: 125px;
-    margin-left: 5px;
+    min-width: 132px;
+    margin-left: 3px;
     padding:0px!important;
 }
     `],

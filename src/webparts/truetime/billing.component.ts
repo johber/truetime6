@@ -80,19 +80,19 @@ ul, li {
 }
 #reportConsultant{
     min-width: 133px;
-    margin-left: 2px;
+    margin-left: 1px;
 }
 #reportMonth{
     min-width: 133px;
-    margin-left: 2px;
+    margin-left: 1px;
 }
 #reportYear{
     min-width: 133px;
-    margin-left: 2px;
+    margin-left: 1px;
 }
 #reportProject{
     min-width: 133px;
-    margin-left: 2px;
+    margin-left: 1px;
 }
 .boxReportBody{
     width: 100%;

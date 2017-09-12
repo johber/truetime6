@@ -196,8 +196,9 @@ ul, li {
     color: #808080;
     background-color: #f9f9f9;
     font-weight: bold;
-    padding-left: 45%;
-    padding-right: 45%;
+    padding-left: 43%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-bottom:10px;
 }
 .totalSumDay{
@@ -288,8 +289,8 @@ ul, li {
     padding-right: 4%;
 }
 .buttons button {
-    margin-left:2px;
-    margin-right:2px;
+    margin-left:16px;
+    margin-right:16px;
     display:flex;
     flex-direction:row;
 }
@@ -320,10 +321,7 @@ ul, li {
 
 @media (max-width: 400px) {
 
-    .reportButton{
-        padding-left: 40%;
-        padding-right: 40%;
-    }
+   
 
     .dayBox, .month-label, .weekDays, .workingHoursBox, .sum {
         font-size:10px;
