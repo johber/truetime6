@@ -363,7 +363,11 @@ ul, li {
     list-style: none;
     background-color: #bdd1ff;
     padding: 5px;
-    border-bottom:1px blue;
+    border-bottom: 1px blue;
+    border-radius: 5px;
+    margin-left: 18px;
+    margin-right: 16px;
+    margin-top: 5px;
 }
 
 .list-of-searched-projects {
@@ -382,6 +386,11 @@ ul, li {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+
 }
 
 .list-of-searched-projects li {

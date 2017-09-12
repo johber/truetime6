@@ -105,7 +105,7 @@ ul, li {
             Toggle Billing
         </button> 
 
-        <button class="admin-button" (click)="log()">
+       <!-- <button class="admin-button" (click)="log()">
             Log Info
         </button>
           <!--
