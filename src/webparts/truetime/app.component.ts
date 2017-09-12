@@ -38,7 +38,6 @@ import { WeekService } from './week.service';
     margin-left: 1px;
 
 
-    
 }
 a {
     text-decoration:none;
