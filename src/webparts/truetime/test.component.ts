@@ -67,7 +67,8 @@ a.arrow {
     width:0%;
     height:44%;
     text-align:center;
-    left: 5.0%;
+    position: absolute;
+    left: 91.5%;
 }
 .month-label {
     color: #003399;
