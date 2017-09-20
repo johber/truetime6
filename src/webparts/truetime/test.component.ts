@@ -64,9 +64,7 @@ a.arrow {
 .green{ color: green; }
 #sumWeek{
     font-weight: bold;
-    width:0%;
-    height:44%;
-    text-align:center;
+   
     position: absolute;
     left: 91.5%;
 }
@@ -213,8 +211,6 @@ ul, li {
 }
 .totalSum{
     color: #808080;
-    font-weight: bold;
-    text-align:center;
 }
 .arrow {
     cursor:pointer;
@@ -305,9 +301,9 @@ ul, li {
 }
 .close-button {
     position: absolute;
-    background-color: #aa0568;
+    background-color: #bdd1ff;
     padding: 5px;
-    color: white;
+    color: darkblue;
     border-radius: 50%;
     height: 5px;
     width: 9px;
@@ -318,6 +314,7 @@ ul, li {
     padding-bottom: 12px;
     margin-top: 2px;
     margin-left: -3px;
+   
 }
 
 
@@ -328,21 +325,8 @@ ul, li {
     .dayBox, .month-label, .weekDays, .workingHoursBox, .sum {
         font-size:10px;
     }
-    .weekDays {
-        width: 13%;
-        margin-left: 1%;
-    }
-    .workingHoursBox{
-        width: 9%;
-        height: 24px;
-        margin-left: 1%;
-    }
     
-    .totalSumDay {
-        margin-right: 4.15%;
-        margin-left: 4.15%;
-        font-size: 12px;
-    }
+  
     .sum {
         margin-top: 34px;
     }
@@ -560,6 +544,7 @@ ul, li {
         </div>
 
     </div>
+    
   `
 })
 

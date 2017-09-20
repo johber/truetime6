@@ -15,10 +15,7 @@ import { Project, Day } from './trueTimeData';
     styles:[`
 
 .buttonBoxReport{
-    left: 25px;
-    position: absolute;
-    top: 85px;
-    z-index: 10;
+    margin-left: 16px;
 }
 .boxReport{
     width: 100%;
