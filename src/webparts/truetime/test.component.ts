@@ -233,9 +233,12 @@ ul, li {
     margin-bottom:4px;
     display:flex;
     flex-direction:row;
-    margin-left: 24px;
+    margin-left: 22px;
+    color: #003399; 
+    font-weight: bold;
+    margin-right: 26px;
 }
-.project-labels b { color: #003399;  }
+
 .project-type-label {   color:#cccccc;  }
 .input-container {
     display: flex;
@@ -256,6 +259,7 @@ ul, li {
 .end {
     display:flex;
     justify-content: flex-end;
+    width:80%;
 }
 .weekDays{
     width: 13%;
@@ -285,6 +289,7 @@ ul, li {
     position: absolute;
     margin-top: 38px;
     padding-right: 4%;
+    margin-left: 12%;
 }
 .buttons button {
     margin-left:16px;
@@ -313,7 +318,7 @@ ul, li {
     padding-top: 2px;
     padding-bottom: 12px;
     margin-top: 2px;
-    margin-left: -3px;
+    margin-left: 12%;
    
 }
 
@@ -323,11 +328,6 @@ ul, li {
 
     .dayBox, .month-label, .weekDays, .workingHoursBox, .sum {
         font-size:10px;
-    }
-    
-  
-    .sum {
-        margin-top: 34px;
     }
 
     .boxheader {
@@ -441,13 +441,16 @@ ul, li {
     <div class="boxbody" [class.hide]="project.hideProject" (click)="showCloseButton(project)"
         *ngFor="let project of projectsService.projects">
 
+        
+
         <div class="row end">
             <div class="column">
-                <div class="project-labels"> 
-                <b>{{ project.name }}</b> 
-                <br/>
-                <label >{{ project.props.type }}</label>
-                </div>
+                
+            <div class="project-labels"> 
+            {{ project.name }} 
+            <br/>
+            
+            </div>
 
                 <div class="input-container">
   
@@ -466,18 +469,21 @@ ul, li {
 
 
 
-            <div class="sum" >
-                {{this.getSum(project)  | number : decimalConfig() }}
-            </div>
-
-            <div 
-                class="close-button"
-               
-                (click)="deleteProject(project)">
-               x
-            </div>
+            
         </div>
 
+<div>
+        <div class="sum" >
+        {{this.getSum(project)  | number : decimalConfig() }}
+         </div>
+
+        <div 
+        class="close-button"
+       
+        (click)="deleteProject(project)">
+          x
+         </div>
+</div>
             <!--<button (click)="deleteProject(project)" class="deleteButton" >X</button>-->
 
     </div>
