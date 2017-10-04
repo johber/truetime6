@@ -62,17 +62,18 @@ a.arrow {
 .red{   color: red;  }
 .yellow{    color: #ffcb00; }
 .green{ color: green; }
+
 #sumWeek{
     font-weight: bold;
-   
     position: absolute;
-    left: 91.5%;
+    left: 91%;
 }
 .month-label {
     color: #003399;
     position: relative;
     left: 2%;
     top: 7%;
+    font-weight: bold;
 }
 .boxheader{
     width: 100%;
@@ -91,7 +92,6 @@ a.arrow {
     border-bottom: 1px solid #cccccc;
     background-color: #ffffff;
     color: #000000;
-    padding-bottom:10px;
     border-radius: 5px;
 }
 .workingHoursBox{
@@ -201,13 +201,13 @@ ul, li {
     margin-bottom:10px;
 }
 .totalSumDay{
-    color: #cccccc;
+   
     font-weight: bold;
     text-align: center;
     height: 40px;
-    margin-right: 2%;
-    width: 50px;
-    padding-right: 18px;
+    margin-left: 3%;
+    width: 13%;
+    padding-right: 0px;
 }
 .totalSum{
     color: #808080;
@@ -233,7 +233,7 @@ ul, li {
     margin-bottom:4px;
     display:flex;
     flex-direction:row;
-    justify-content:center;
+    margin-left: 24px;
 }
 .project-labels b { color: #003399;  }
 .project-type-label {   color:#cccccc;  }
@@ -295,8 +295,9 @@ ul, li {
 .bottom-row {
     max-height:30px;
     margin-top:5px;
-    width:96.5%;
-    padding-left: 33px;
+    width: 81%;
+    margin-left: 9%;
+    
     
 }
 .close-button {
@@ -308,7 +309,6 @@ ul, li {
     height: 5px;
     width: 9px;
     text-align: center;
-    padding-bottom: 15px;
     font-size: 10px;
     padding-top: 2px;
     padding-bottom: 12px;
@@ -316,7 +316,6 @@ ul, li {
     margin-left: -3px;
    
 }
-
 
 @media (max-width: 400px) {
 
@@ -445,9 +444,9 @@ ul, li {
         <div class="row end">
             <div class="column">
                 <div class="project-labels"> 
-                <b>{{ project.name }} &nbsp;</b> 
+                <b>{{ project.name }}</b> 
                 <br/>
-                <label class="project-type-label">{{ project.props.type }}</label>
+                <label >{{ project.props.type }}</label>
                 </div>
 
                 <div class="input-container">
@@ -473,7 +472,7 @@ ul, li {
 
             <div 
                 class="close-button"
-                [hidden]="!project.showCloseButton"
+               
                 (click)="deleteProject(project)">
                x
             </div>
