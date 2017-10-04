@@ -243,6 +243,8 @@ ul, li {
 .input-container {
     display: flex;
     justify-content: center;
+    width: 126%;
+    margin-bottom: 1%
 }
 .column {
     display:flex;
@@ -479,7 +481,7 @@ ul, li {
 
         <div 
         class="close-button"
-       
+        [hidden]="!project.showCloseButton"
         (click)="deleteProject(project)">
           x
          </div>
