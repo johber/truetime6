@@ -42,11 +42,11 @@ export class UserService {
 
     }
 
-    public lockWeek(bool, saveChanges) {
+    public lockWeek(islocked : boolean, saveChanges: boolean) {
         for (let project of this.projectsService.projects) {
             for (let day of project.week) {
                 if (day.month === this.weekService.month) {
-                    day.isLocked = bool;
+                    day.isLocked = islocked;
                     
                 }
                
@@ -56,11 +56,11 @@ export class UserService {
         if (saveChanges) {
             //Notify admin
             
-            this.notifyAdmin && this.listService.getMyWeeklyHours(
+            this.listService.getMyWeeklyHours(
                 
-                this.userId,
                 this.weekService.weekStart,
                 this.weekService.weekEnd,
+                this.userId,
                 
             )
             .then(response => {
@@ -85,7 +85,9 @@ export class UserService {
 
     public checkExistingItem(items): any {
         for (let item of items.value) {
-            this.listService.deleteThis(item);
+            this.listService.deleteThis(item).then((response) => {
+                console.log("DELETED SOMETHING");
+            })
         }
         for (let project of this.projectsService.projects) {
             for (let day of project.week) {
@@ -101,7 +103,8 @@ export class UserService {
                             //return.response.json() //returns a promise so you get access to the json in the resolve callback.
                             
                            return response.json().then((responseJSON: JSON) => {
-                                console.log("responseJSON", responseJSON);
+                                //console.log("responseJSON", responseJSON);
+                                console.log("SAVED SOMETHING")
                             });
                           
                         });

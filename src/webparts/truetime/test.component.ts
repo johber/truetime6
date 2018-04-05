@@ -465,7 +465,7 @@ ul, li {
                         disabled="{{project.week[i].isLocked || project.week[i].month !== weekService.month}}"
                         [(ngModel)]="project.week[i].hours" 
                         (click)="removeZeroInInput($event)" 
-                        (blur)="onBlurHoursInput($event)" />
+                        (keyup)="onBlurHoursInput($event)" />
                 </div>
             </div>
 

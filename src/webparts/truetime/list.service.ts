@@ -19,6 +19,19 @@ export class ListService {
   constructor() {
    }
 
+   ngOnInit(){
+    Date.prototype['yyyymmdd'] = function() {
+      var mm = this.getMonth() + 1; // getMonth() is zero-based
+      var dd = this.getDate();
+    
+      return [this.getFullYear(),
+              (mm>9 ? '-' : '-0') + mm,
+              (dd>9 ? '-' : '-0') + dd
+             ].join('');
+    };
+    
+   }
+
   public getListPermission(userId): Promise<any> {
     return this.context.spHttpClient.get(this.context.pageContext.web.absoluteUrl + `/english/_api/web/lists/GetByTitle('` + this.listName + `')/roleassignments/GetByPrincipalId('` + userId + `')/RoleDefinitionBindings/`, SPHttpClient.configurations.v1)
       .then((response: Response) => {
@@ -42,7 +55,7 @@ export class ListService {
 
   public createListItem(day: Day, projectColumnValue, userId): Promise<any> {
 
-    console.log("projectColumnValue", projectColumnValue);
+    //console.log("projectColumnValue", projectColumnValue);
 
     var url = `${this.context.pageContext.web.absoluteUrl}/english/_api/web/lists/GetByTitle('${this.listName}')/items?`;
     var body: any = {}
@@ -75,7 +88,7 @@ export class ListService {
       
     };
 
-    console.log("in createListItem, body", body);
+    //console.log("in createListItem, body", body);
 
     const spOpts: ISPHttpClientOptions = {
       body: JSON.stringify(body)//`{ Title: 'Developer Workbench', BaseTemplate: 100 }`
@@ -136,6 +149,9 @@ export class ListService {
         return response.json();
       });
   }
+
+
+
 
 
   public getNotificationList(): Promise<any> {
