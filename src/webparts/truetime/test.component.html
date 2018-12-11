@@ -1,0 +1,93 @@
+<div class="boxheader">
+
+  <div class="month-label" *ngIf="weekService.month !== undefined">
+    {{ weekService.monthNamesLarge[weekService.month]}}
+  </div>
+  <div class="dateBox row">
+
+    <div>
+      <h2 class="arrow arrow-left" (click)="backtoWeek()" [class.other-month-label]="weekService.weekBeforeLastDayMonth() !== weekService.month">
+        &lt;
+      </h2>
+    </div>
+
+    <div class="dates-and-daynames column">
+      <div class="row" *ngIf="weekService.weeks.length > 0">
+        <div class="dayBox" *ngFor="let day of weekService.week(); let i=index" [class.other-month-label]="weekService.week()[i].month !== weekService.month">
+          {{ day.dayName }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="weekDays" *ngFor="let day of week; let i=index" [class.other-month-label]="day.month !== weekService.month">
+          {{ day.dateAndMonth }}
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="arrow arrow-right" (click)="gotoWeek()" [class.other-month-label]="weekService.weekNextFirstDayMonth() !== weekService.month">
+        &gt;
+      </h2>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="projectsService.projects?.length === 0" class="loading"></div>
+
+<div class="boxbody" [class.hide]="project.hideProject" (click)="showCloseButton(project)" *ngFor="let project of projectsService.projects">
+
+  <div class="row end">
+    <div class="column">
+      <div class="project-labels">
+        {{ project.name }}
+        <br />
+      </div>
+      <div class="input-container">
+        <input *ngFor="let day of week; let i=index" type="number" [class.today]="project.week[i].isToday"
+          [class.locked]="project.week[i].isLocked" class="workingHoursBox" [class.other-month]="project.week[i].month !== weekService.month"
+          disabled="{{project.week[i].isLocked || project.week[i].month !== weekService.month}}" [(ngModel)]="project.week[i].hours"
+          (click)="removeZeroInInput($event)" (keyup)="onBlurHoursInput($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="sum">
+      {{this.getSum(project) | number : decimalConfig() }}
+    </div>
+    <div class="close-button" [hidden]="!project.showCloseButton" (click)="deleteProject(project)">
+      &times;
+    </div>
+  </div>
+
+</div>
+
+<div class="boxfooter">
+  <div class="bottom-row row center" *ngIf="week?.length > 0 && projectsService.projects?.length > 0">
+    <div *ngFor="let day of week; let i=index" class="totalSumDay" [class.red]="this.getSumDay(i) < 8" [class.yellow]="this.getSumDay(i) > 8"
+      [class.green]="this.getSumDay(i) === 8">
+      {{this.getSumDay(i) | number : decimalConfig() }}
+    </div>
+    <div class="totalSum" id="sumWeek" *ngIf="projectsService.projects?.length > 0">
+      {{this.getSumTotal() | number : decimalConfig() }}
+    </div>
+  </div>
+
+  <div class="column center buttons">
+    <div class="search-project">
+      <label class="projects-label">Open Project</label>
+      <input type="text" placeholder="project name..." (keyup)="filterProjects($event)" [(ngModel)]="inputValue" />
+      <ul class="list-of-searched-projects">
+        <li *ngFor="let project of filteredProjects; let i = index" class="searched-project" (click)="selectItem(project)"
+          [hidden]="project.hideProject === false || i > 2">
+          {{ project.name }}
+        </li>
+      </ul>
+    </div>
+
+    <button *ngIf="projectsService.projects?.length > 0" class="reportButton" (click)="userService.lockWeek(true, true)">
+      Lock Week
+    </button>
+  </div>
+</div>

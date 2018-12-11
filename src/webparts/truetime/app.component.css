@@ -1,0 +1,75 @@
+.admin-button {
+  height: 30px;
+  border-radius: 5px;
+  color: #808080;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  margin-top: 21px;
+  min-width: 135px;
+  margin-left: 1px;
+}
+
+a {
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.boxAdmin {
+  width: 100%;
+  height: 75px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #003399;
+}
+
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  z-index: 10;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  /*min-width: 90px;*/
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  z-index: 10;
+}
+
+.dropdown-content li {
+  padding: 5px;
+  border-bottom: solid 1px #b3cccc;
+  position: relative;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.sumDeleteBox {
+  width: 12%;
+  height: 75px;
+}
+
+#reportConsultantAdmin {
+  min-width: 132px;
+  margin-left: 3px;
+  padding: 0px !important;
+}

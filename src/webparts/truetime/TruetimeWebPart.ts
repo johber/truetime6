@@ -1,28 +1,17 @@
 import { Version } from '@microsoft/sp-core-library';
-import {
-  BaseClientSideWebPart,
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
-import { escape } from '@microsoft/sp-lodash-subset';
-
-import styles from './Truetime.module.scss';
+import { BaseClientSideWebPart, IPropertyPaneConfiguration, PropertyPaneTextField } from '@microsoft/sp-webpart-base';
+import 'reflect-metadata';
 import * as strings from 'truetimeStrings';
 import { ITruetimeWebPartProps } from './ITruetimeWebPartProps';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app.module';
 
 require('sp-init');
 require('microsoft-ajax');
 require('sp-runtime');
 require('sharepoint');
 require('taxonomy');
-
-// init Angular 2
-import 'reflect-metadata';
 require('zone.js');
-//
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
-//
 
 export default class TruetimeWebPart extends BaseClientSideWebPart<ITruetimeWebPartProps> {
 

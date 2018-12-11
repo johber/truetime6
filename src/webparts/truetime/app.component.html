@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div [hidden]="!this.userService.isAdmin" class="boxAdmin">
+
+    <a href="https://stebra.sharepoint.com/sites/SD1/_layouts/15/termstoremanager.aspx">
+      <button class="admin-button">Go To TermStore</button>
+    </a>
+
+    <button class="admin-button" (click)="toggleBilling()">
+      Toggle Billing
+    </button>
+
+    <!-- <button class="admin-button" (click)="log()">
+          Log Info
+      </button>
+       <button class="adminButton" (click)="deleteItems()">
+          Delete my items 
+      </button>
+      -->
+    <button [hidden]="hideElement" class="admin-button" *ngIf="projectsService.projects?.length > 0" (click)="userService.lockWeek(false, true)">
+      Unlock Week
+    </button>
+
+    <div class="dropdown" [hidden]="hideElement">
+      <button *ngIf="selectedConsultant === undefined" [hidden]="hideElement" class="admin-button">
+        Me
+      </button>
+      <button *ngIf="selectedConsultant !== undefined" class="admin-button" (click)="selectedConsultant = undefined">{{selectedConsultant.Title}}</button>
+      <ul class="dropdown-content" id="reportConsultantAdmin" *ngIf="userService.users?.length > 0" [hidden]="hideElement">
+        <li *ngFor="let user of userService.users" (click)="impersonate(user)">
+          {{user.Title}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <test [hidden]="showBilling"></test>
+  <billing [hidden]="!showBilling"></billing>
+</div>
