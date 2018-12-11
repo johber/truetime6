@@ -6,7 +6,7 @@
     </a>
 </p>
 <p>
-    <a "href=http://cmder.net/">
+    <a href="http://cmder.net/">
         alternative console editor (not required)
     </a>
 </p>
