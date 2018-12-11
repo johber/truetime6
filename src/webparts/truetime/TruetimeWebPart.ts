@@ -32,9 +32,9 @@ export default class TruetimeWebPart extends BaseClientSideWebPart<ITruetimeWebP
       <my-app></my-app>
       
       `;
-      window["context"] = this.context;
 
-      platformBrowserDynamic().bootstrapModule(AppModule);
+    window["context"] = this.context;
+    platformBrowserDynamic().bootstrapModule(AppModule);
   }
 
   protected get dataVersion(): Version {
@@ -43,23 +43,15 @@ export default class TruetimeWebPart extends BaseClientSideWebPart<ITruetimeWebP
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
-      pages: [
-        {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
-          groups: [
-            {
-              groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
-            }
-          ]
-        }
-      ]
+      pages: [{
+        header: {
+          description: strings.PropertyPaneDescription
+        },
+        groups: [{
+          groupName: strings.BasicGroupName,
+          groupFields: [PropertyPaneTextField('description', { label: strings.DescriptionFieldLabel })]
+        }]
+      }]
     };
   }
 }

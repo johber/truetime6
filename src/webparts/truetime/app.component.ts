@@ -1,30 +1,15 @@
 
-import {
-    Component,
-    Input,
-    Output,
-    EventEmitter,
-    Inject,
-    ChangeDetectorRef,
-    AfterViewInit,
-    ViewChild //enables us to call testComponent
-} from '@angular/core';
+import { Component, Inject, AfterViewInit, ViewChild } from '@angular/core';
 
 import { TestComponent } from './test.component';
 import { BillingComponent } from './billing.component';
-
 import { ProjectsService } from './projects.service';
-
 import { UserService } from './user.service';
-
 import { ListService } from './list.service';
-
 import { WeekService } from './week.service';
-
 
 @Component({
     selector: 'my-app',
-
     styles: [`
 
 .admin-button {
@@ -147,10 +132,9 @@ export class AppComponent implements AfterViewInit {//.. us to call testComponen
     private billingComponent: BillingComponent;
     ngAfterViewInit() { }                      //enables us to call testComponent
 
-
     private hideElement: boolean = false;
     selectedConsultant: any;
-    showBilling: Boolean = false;
+    showBilling: boolean = false;
 
     public constructor(
         @Inject(ProjectsService) public projectsService: ProjectsService,
@@ -159,13 +143,12 @@ export class AppComponent implements AfterViewInit {//.. us to call testComponen
         @Inject(WeekService) public weekService: WeekService) {
 
         window["log"] = {
-            "weekService":this.weekService,
-            "projectsService":this.projectsService,
+            "weekService": this.weekService,
+            "projectsService": this.projectsService,
             "userService": this.userService,
             "app.component": this,
             "TestComponent": TestComponent
         };
-        //console.log("app.compontent.ts", this);
     }
 
     public log() {
@@ -184,10 +167,9 @@ export class AppComponent implements AfterViewInit {//.. us to call testComponen
         this.testComponent.loadWeek(); //calling testCompontent function
     }
 
-
     public deleteItems() {
-
         let myItems = [];
+
         this.listService.getAllItemsFromUser(this.userService.userId).then(
             response => {
                 myItems = response.value;
@@ -198,7 +180,6 @@ export class AppComponent implements AfterViewInit {//.. us to call testComponen
                 this.testComponent.loadWeek(); //calling testCompontent function
             }
         );
-
     }
 
     public toggleBilling() {
@@ -207,11 +188,6 @@ export class AppComponent implements AfterViewInit {//.. us to call testComponen
             this.showBilling = !this.showBilling;
         }, 1);
 
-
-        if (this.hideElement) {
-            this.hideElement = false;
-        }
-        else
-            this.hideElement = true;
+        this.hideElement = !this.hideElement;
     }
 }

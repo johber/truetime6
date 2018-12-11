@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Project, Day } from './trueTimeData';
-
 @Injectable()
 export class WeekService {
-
     public weekStart: any;
     public weekEnd: any;
     public monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -15,31 +12,26 @@ export class WeekService {
     public weekNumber: number;
     public weeks: any[]
     public month: number;
-    public thisYear = new Date().getFullYear();
+    public thisYear: number = new Date().getFullYear();
 
     constructor() {
-
         this.setupWeeks(new Date().getFullYear()); //...and years
         this.findAndMarkToday();
-
     }
 
     public setupWeeks(thisYear) {
-        this.year = [(thisYear - 1).toString(),
-        thisYear.toString(),
-        (thisYear + 1).toString()];
-        var dayOneOfThisYear = new Date(thisYear, 0, 1);
-        var date = dayOneOfThisYear;
-        var weeks = []
+        this.year = [(thisYear - 1).toString(), thisYear.toString(),(thisYear + 1).toString()];
+
+        let dayOneOfThisYear = new Date(thisYear, 0, 1);
+        let date = dayOneOfThisYear;
+        let weeks = []
 
         //set date the monday before its day.
         while (date.getDay() !== 1) {
-            date.setDate(date.getDate()-1);
+            date.setDate(date.getDate() - 1);
         }
 
-
-
-        while (date.getFullYear() !== thisYear+1) {
+        while (date.getFullYear() !== thisYear + 1) {
             var week = [];
             do {
                 var dateObj = new Date(date.getTime());
@@ -54,17 +46,15 @@ export class WeekService {
                     "dayName": this.dayNamesSundayFirst[dateObj.getDay()]
                 }
 
-                var dayCopy = new Date(date.getTime());
                 week.push(dayObject);
                 date.setDate(date.getDate() + 1);
-            } while (date.getDay() !== 1 && date.getFullYear() !== thisYear+1); //goto
+            } while (date.getDay() !== 1 && date.getFullYear() !== thisYear + 1); //goto
 
-            if (week.length === 7) {//goto
+            if (week.length === 7) {
                 weeks.push(week);
-            }//goto
+            }
         }
         this.weeks = weeks;
-
     }
 
     public findAndMarkToday() {
@@ -82,20 +72,17 @@ export class WeekService {
     }
 
     public nextWeek() {
-
         var week = this.weeks[this.weekNumber];
-
         //check if monthChange
         var weekEndsWithMonth = week[week.length - 1].dateObj.getMonth();
 
         if (this.month === weekEndsWithMonth) { //change week regardless of MONTH
-            if (this.weekNumber !== this.weeks.length - 1) { //no year-change
+            if (this.weekNumber !== this.weeks.length - 1) { 
+                //no year-change
                 this.weekNumber++;
                 this.setupWeekRange(this.weeks[this.weekNumber]);
-
                 week = this.weeks[this.weekNumber];
                 this.month = week[0].dateObj.getMonth();
-
             }
             else {
                 this.changeYear(+1);
@@ -106,23 +93,16 @@ export class WeekService {
         }
     }
 
-
-
     public lastWeek() {
+        let week = this.weeks[this.weekNumber];
+        let weekStartWithMonth = week[0].dateObj.getMonth();
 
-        var week = this.weeks[this.weekNumber];
-
-        //check if monthChange
-        var weekStartWithMonth = week[0].dateObj.getMonth();
-
-        if (this.month === weekStartWithMonth) { //change week regardless of MONTH
-
-            if (this.weekNumber - 1 >= 0) { //no year-change
+        if (this.month === weekStartWithMonth) {
+            if (this.weekNumber - 1 >= 0) {
                 this.weekNumber--;
                 this.setupWeekRange(this.weeks[this.weekNumber]);
                 week = this.weeks[this.weekNumber];
                 this.month = week[week.length - 1].dateObj.getMonth();
-
             }
             else {
                 this.changeYear(-1);
@@ -147,7 +127,7 @@ export class WeekService {
             this.setupWeeks(Number(this.year[0]));
             if (this.thisYear = Number(this.year[0])) { this.findAndMarkToday() }
             this.weekNumber = this.weeks.length - 1;
-            this.month = this.month = this.week()[this.week().length-1].month;
+            this.month = this.month = this.week()[this.week().length - 1].month;
         }
         this.setupWeekRange(this.week());
     }
@@ -162,7 +142,6 @@ export class WeekService {
 
         this.weekStart = start;
         this.weekEnd = end;
-
     }
 
     public week() {
@@ -171,6 +150,7 @@ export class WeekService {
 
     public weekBeforeLastDayMonth() {
         let month = 11;//December;
+
         if (this.weeks[this.weekNumber - 1] !== undefined) {
             let lastWeek = this.weeks[this.weekNumber - 1];
             month = lastWeek.month;
@@ -179,6 +159,7 @@ export class WeekService {
     }
     public weekNextFirstDayMonth() {
         let month = 0;//January;
+        
         if (this.weeks[this.weekNumber + 1] !== undefined) {
             let nextWeek = this.weeks[this.weekNumber + 1];
             month = nextWeek[0].month;

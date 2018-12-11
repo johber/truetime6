@@ -1,14 +1,10 @@
-import { Component, Input, Output, EventEmitter, OnInit, Inject } from '@angular/core';
-import { SPHttpClient, ISPHttpClientOptions, SPHttpClientResponse } from '@microsoft/sp-http';
-import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
-//import { TermService } from './term.service';
+import { Component, Inject } from '@angular/core';
+import { SPHttpClient } from '@microsoft/sp-http';
 import { ListService } from './list.service';
 import { WeekService } from './week.service';
 import { UserService } from './user.service';
 import { ProjectsService } from './projects.service';
-
-import { Project, Day } from './trueTimeData';
+import { Project } from './trueTimeData';
 
 @Component({
     selector: 'billing',
@@ -217,7 +213,6 @@ export class BillingComponent {
     public restedItems: any[];
     public summarizedItems: any[];
     public selectedYear: string = this.weekService.year[1];
-    private context: any = window['context'];
 
     public constructor(
         //@Inject(TermService) public termService: TermService,
@@ -227,9 +222,7 @@ export class BillingComponent {
         @Inject(UserService) public userService: UserService) {
     }
 
-
     public restCall() {
-
         //reset data from previous call
         this.restedItems = undefined;
         this.filteredItems = undefined;
@@ -239,21 +232,13 @@ export class BillingComponent {
         //setup daterange:
         //specific month OR whole year
         let year = Number(this.selectedYear);
-        let dateStart: any = new Date( //year, month, date
-            year,
-            (this.selectedMonth || 0),  //if no month is specified, query the whole year.
-            1
-        );
-        let dateEnd: any = new Date(
-            year,
-            ((this.selectedMonth + 1) || 12), //if no month is specified, query the whole year.
-            0
-        );
+        let dateStart: Date = new Date(year, (this.selectedMonth || 0), 1);
+        let dateEnd: Date = new Date(year, ((this.selectedMonth + 1) || 12), 0);
+
         //right way to specify date in filterQuery:          
         //'2016-03-26T09:59:32Z'
-        let startFormatted = dateStart.format("yyyy-MM-dd") + "T00:00:00Z";//Thh:mm:ssZ");
-        let endFormatted = dateEnd.format("yyyy-MM-dd") + "T23:59:59Z";
-
+        let startFormatted: string = dateStart.format("yyyy-MM-dd") + "T00:00:00Z";
+        let endFormatted: string = dateEnd.format("yyyy-MM-dd") + "T23:59:59Z";
         let filterQuery = `(EventDate ge datetime'${startFormatted}') and (EventDate le datetime'${endFormatted}')`;
 
         //FILTERQUERY
@@ -274,10 +259,6 @@ export class BillingComponent {
                     //this.filterItems(); //to do, chain this funtion
                 })
             });
-
-
-
-
     } //restcall() end
 
     public summarizeItems() {
@@ -333,17 +314,16 @@ export class BillingComponent {
         else {
             this.filterItemsByProject(this.selectedProject, this.restedItems);
         }
-
     }
 
     public objToArray(obj): any[] {
-
         let array: any[] = [];
         for (var key in obj) {
             if (obj.hasOwnProperty(key)) {
                 array.push(obj[key]);//console.log(key + " -> " + obj[key]);
             }
         }
+
         return array;
     }
 
@@ -357,7 +337,6 @@ export class BillingComponent {
 
     public selectMonth(monthName) {
         this.selectedMonth = this.weekService.monthNamesLarge.indexOf(monthName);
-
     }
 
     public yearNameList(yearName) {
@@ -372,11 +351,11 @@ export class BillingComponent {
                 sum += item.Hours 
             }
         }
+        
         return sum;
     }
 
     public filterItemsByProject(selectedProject: Project, itemsArray) {
-
         let filteredItems = []
 
         for (let item of itemsArray) {
